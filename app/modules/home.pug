@@ -1,0 +1,17 @@
+//- copied from upload.pug
+include social.pug
+.posts__feed.flex-row(v-show='home_loaded === true')
+  .post.flex-row.md1(v-for='post in posts__feed',
+  :class='{post__user: post.user_id === user_id}')
+    .post__title.ellipsis {{ post.title }}
+    .post__img
+      img.fill(
+        :src='post.src'
+        @click=`route__go('post/'+post.short_url, 'pushState')`
+        )
+      .post__social.flex-row
+        +social('post')
+    .post__description.ellipsis {{ post.description }}
+
+.layout-fullscreen.flex-center(v-show='home_loaded === false')
+  include loaders.pug

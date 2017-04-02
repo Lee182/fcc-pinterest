@@ -1,0 +1,39 @@
+.posts__feed
+  align-items center
+  .post
+    margin 1rem
+    max-width 175px
+
+.post__social
+  // anchored to post__img
+  position absolute
+  bottom -.9rem
+  left 0
+  width 100%
+  flex-flow nowrap
+black_bubble()
+  background rgba(black, .8)
+  margin 0 .15rem
+  &:hover, &.active
+    background-color rgba(#1987d7, 0.89)
+  position relative
+
+.post__social_icon
+  black_bubble()
+.icon_count
+  background rgba(black, .8)
+  font-size .9rem
+  height 1rem
+  width 1rem
+  border-radius 50%
+  position absolute
+  bottom -.25rem
+  right -0.25rem
+
+.post__user_id
+  border-radius 1rem !important
+  black_bubble()
+  align-self center
+  padding .5rem
+  border-radius 50%
+  max-width 90px

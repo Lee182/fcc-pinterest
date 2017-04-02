@@ -1,0 +1,106 @@
+.header-title
+  padding 0
+.fill
+  height auto
+  width auto
+  max-width 100%
+  max-height 100%
+.fill-box
+  height 100%
+  width 100%
+
+.layout-upload
+  padding 1rem
+  display flex
+  flex-flow column
+  align-items center
+  & > *
+    max-width 600px
+    width 100%
+    margin 1rem
+
+
+.upload
+  position relative
+  max-width 600px
+  border .2rem dotted #a0b1af
+  padding .75rem
+  transition background-color 1s ease
+  &.dragging_file
+    background #676767
+  &__input
+    position absolute
+    top 0
+    left 0
+    height 100%
+    width 100%
+    background white
+    opacity 0
+  &__start
+    display flex
+    flex-flow column
+    justify-content center
+    padding .75rem
+    min-height 100%
+    min-width 100%
+  &__explain
+    justify-content center
+    align-items baseline
+  &__icon
+    width 100%
+    i
+      font-size 5rem
+      color #788684
+  &__choose_file
+    font-size 1.5rem
+    border-bottom .2rem solid #a0b1af
+    margin .5rem
+
+.post
+  max-width 250px
+  border-radius .2rem
+  background #814b57
+  color white
+  justify-content center
+
+.post__upload
+  position absolute
+  bottom 0
+  align-items center
+  height 3rem
+  width 100%
+  //background rgba(0, 0, 0, 0.75)
+  background linear-gradient(transparent -0%, rgba(0, 0, 0, 0.75) 60%)
+  p
+    padding .5rem
+.post__uploadbar
+  position absolute
+  bottom 0
+  left 0
+  height .3rem
+  background white
+  width 100%
+  transition width .1s ease
+
+
+.post__title
+  padding 1rem .5rem
+  font-size 1.3rem
+  height 3.6rem // prevent input cutting
+  width 100%
+  text-align center
+.post__description
+  padding 1rem .5rem
+  width 100%
+  line-height 1.5
+
+.post__img
+  position relative
+  width 100%
+
+.post__save
+  width 100%
+  text-align center
+  text-transform uppercase
+  padding .5rem
+  background-color rgba(189,178,178,0.302)

@@ -1,0 +1,13 @@
+//- .post__social_icon.circle.flex-center.md1: i.fa.fa-download
+mixin social(str)
+  .post__user_id.ellipsis(@click='route__go(\'/user/\'+'+str+'.user_id,\'pushState\')')='@{{ '+str+'.user_id }}'
+  .flex-gap
+  .post__social_icon.circle.flex-center.md1(
+    @click='post__share_link('+str+')'
+    ): i.fa.fa-share
+  .post__social_icon.circle.flex-center.md1(
+    @click='post__heart('+str+')',
+    :class='{active: has_user_hearted('+str+')}'
+    )
+    i.fa.fa-heart
+    .icon_count.flex-center: p='{{ '+str+'.hearts.length}}'

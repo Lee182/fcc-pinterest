@@ -1,0 +1,51 @@
+include social.pug
+
+.layout__singlepost(v-if='sp_loaded === true && sp_notfound === false')
+
+  .post.post__single.flex-row.md1.flex-center(:class='{post__user: sp.user_id === user_id}')
+    .post__row
+      h1.post__title(v-if='sp.user_id !== user_id') {{ sp.title }}
+      .relative_div(v-if='sp.user_id === user_id')
+        input.post__title(
+          placeholder='Your Post title...',
+          v-model='sp.title',
+          @focus='edit_focus("t", false)',
+          @blur='edit_focus("t", true)')
+          
+        .edit-pencil.flex-center.pencil-center(v-show='editpen_t')
+          i.fa.fa-pencil
+    .post__img
+      img.fill(
+        :src=`'/img/'+sp.short_url`,
+        )
+    .post__social1.post__row
+      h3 Social:
+      .flex-row: +social('sp')
+       
+    .post__descritpion.post__row
+      h3 Description:
+      .relative_div(v-if='sp.user_id === user_id')
+        textarea.post__description(
+          placeholder='Add a description #tags and @mention',
+          v-model='sp.description',
+          @focus='edit_focus("d", false)',
+          @blur='edit_focus("d", true)'
+        )
+        .edit-pencil.flex-center(v-show='editpen_d')
+          i.fa.fa-pencil 
+      p(v-if='sp.user_id !== user_id') {{sp.description}}
+    .post__row.post__meta
+      h3 Metadata:
+      p format: {{sp.metadata.format}}
+      p filesize: {{ filesize(sp.metadata.size) }}
+      p height: {{sp.metadata.height}}
+      p width: {{sp.metadata.width}}
+    div(v-if='sp.user_id === user_id')
+      button.post__save.md0(@click='post__update(sp)') save changes
+      button.post__save.post__delete.md0(@click='post__delete(sp)') delete post
+
+.layout-fullscreen.flex-center(v-if='sp_notfound === true') 
+  h1 Post Not Found
+
+.layout-fullscreen.flex-center(v-show='sp_loaded === false')
+  include loaders.pug

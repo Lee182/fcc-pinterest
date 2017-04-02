@@ -1,0 +1,115 @@
+$main_color = rgba(#6e3124, 0.73)// rgb(110, 36, 90)
+.header
+  min-height 3rem
+  background-color #814B57
+  color #fff
+  z-index 99
+  position relative
+  &-titlerow
+    min-height 3rem
+    align-items stretch
+
+  &-title
+    padding 0 1rem
+  &-button-text
+    text-transform uppercase
+    font-size .85rem
+    font-weight 500
+    padding 1rem .5rem
+    transition background-color .4s ease
+    &:hover
+      background-color #bdb2b24d
+  h1
+    font-size 1.3rem
+  &-icon
+    padding 0 .25rem
+    i
+      font-size 1.3rem
+  &-avatar
+    border-radius 50%
+    height 32px
+    width 32px
+    border 2px solid white
+    box-sizing content-box
+.circle
+  width 2rem
+  height 2rem
+  border-radius 50%
+  transition background-color .4s ease
+  &:hover
+    background-color #bdb2b24d
+
+.header-icon.active
+  .circle
+    background-color #bdb2b24d
+
+// i.fake-avatar
+//   font-size 1.75rem
+//   background #5c281c99
+//   border-radius 50%
+
+.nav
+  display flex
+  position relative
+  flex-flow row nowrap
+  align-items stretch
+  overflow-x scroll
+  &-active
+    position absolute
+    bottom 0px
+    transition all .4s ease
+    left 0
+    width 4.5rem
+    padding 2px
+    background white
+  &-item
+    padding 1rem
+    // flex 1
+    padding-top 1.25rem
+    align-self stretch
+    user-select none
+    list-style none
+    transition background-color .4s ease
+    &:hover
+      background-color #bdb2b24d
+.nav-bottom
+  .nav-item
+    padding .5rem 1rem 1rem 1rem
+  background-color $main_color
+
+
+
+.ellipsis-tog.active
+  z-index 2001
+.ellipsis-fullscreen
+  &.darkroom
+    background-color rgba(0,0,0,.5)
+  height 100vh
+  width 100vw
+  position fixed
+  top 0
+  left 0
+  z-index 2000
+  display none
+  &.show
+    display block
+
+.ellipsis-menu
+  position fixed
+  top 3rem
+  z-index 2001
+  display none
+  &.show
+    display block
+  right .75rem
+  background #fafafa
+  color black
+  border-radius .25rem
+  li
+    user-select none
+    list-style none
+    padding 1rem
+    transition background .4s ease
+    &:hover
+    &.active
+      background #bdb2b24d

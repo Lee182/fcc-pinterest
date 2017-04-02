@@ -1,0 +1,169 @@
+.stage
+  height 100%
+// .stage
+//   background #ffffff80
+//   padding 1rem
+//   h2
+//     padding-bottom 1rem
+//     font-size 1.7rem
+//     text-align center
+//   h3
+//     padding-top .5rem
+//     padding-bottom 1rem
+//     font-size 1.3rem
+//   p
+//     padding-bottom 1rem
+//     line-height 1.4
+
+.btn
+  display inline-block
+  padding .5rem
+  border-radius .3rem
+  color white
+  background  #006fb6
+.btn-book_search
+  background #006fb6
+.btn-remove_book
+  background rgb(240, 130, 68)
+
+
+
+// .bookshelf
+//   display flex
+//   flex-flow row wrap
+//   align-items center
+//   width 100%
+// .book
+//   width 280px
+//   background-color white
+//   margin 1rem
+//   border-radius 1rem
+//   .booktxt
+//     padding 0 .5rem
+//   .book-image
+//     float left
+//     padding-right .5rem
+//     border-radius 1rem
+//   .book-title
+//     font-size 1.5rem
+//     padding-top .5rem
+//     padding-bottom .3rem
+//     hyphens auto
+//     display block
+//     text-decoration underline
+//   .book-author
+//     padding-bottom .3rem
+//   .book-shortdescription
+//     padding-top 1rem
+//     line-height 1.2
+//   .clear
+//     display inline-block
+//     clear both
+//   .btn-row
+//     display flex
+//     flex-flow row-reverse wrap
+//     padding 1rem
+
+.search
+  display inline-flex
+  flex-flow row wrap
+  justify-content flex-start
+
+.search input
+  padding 0 .5rem
+  height 2rem
+  background white
+  border-radius .5rem 0 0 .5rem
+.serach-icon
+  width 2rem
+  height 2rem
+  background white
+  border-radius 0 .5rem .5rem 0
+
+.bookshelf-showing
+  padding .5rem
+
+
+.pgs
+  display inline-flex
+  flex-flow row wrap
+  border-radius 1.25rem
+
+.pg
+  background white
+  height 2.5rem
+  width 2.5rem
+  &.active
+    text-decoration underline
+    background-color #eee
+  &:first-child
+    border-radius 50% 0 0 50%
+  &:last-child
+    border-radius 0 50% 50% 0
+
+
+
+
+
+
+
+
+
+
+
+.searchbox
+  input
+    width 200px
+    padding .5rem 0
+  > *
+    background white
+  &-search
+    padding .5rem
+    border-radius .3rem 0 0 .3rem
+  &-clear
+    padding .5rem
+    border-radius 0 .3rem .3rem 0
+
+// profieLoci
+.searchbox
+  border 1px solid #c9c9c9
+.pl-place
+  background white
+  width 200px
+  padding .5rem 0 .5rem .5rem
+  line-height 1.3
+  text-align right
+.pl-edit
+  padding .5rem
+  background white
+  align-items baseline
+
+.pl-edit-text
+  margin-left .25rem
+  border-bottom .2rem solid black
+
+
+
+@keyframes rotate360
+  from
+    transform rotate(0deg)
+  to
+    transform rotate(360deg)
+
+.spinner
+  width 4rem
+  height 4rem
+  path
+    fill rgb(110,49,36)
+    transform-origin 50%
+    animation .7s rotate360 infinite linear
+
+.loader
+  width 4rem
+  height 4rem
+  rect
+    fill white
+
+.layout-fullscreen
+  width 100%
+  height calc(100% - 3rem)

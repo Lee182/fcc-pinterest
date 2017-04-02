@@ -1,0 +1,40 @@
+mixin header_back(path, title, showAccount, isTitle, isUpload)
+
+  .header-titlerow.flex-row(v-show=`header.show === '`+path+`'`)
+    span.bit-horizontal
+    if !isTitle
+      .header-icon.flex-center(@click=`route__back()`)
+        .circle.flex-center
+          i.fa.fa-chevron-left(style='font-size: 1rem')
+    .header-title.flex-center: h2=title
+    if showAccount
+      .flex-gap
+      if (isUpload !== false)
+        .header-icon.flex-center(
+          @click=`route__go('/upload', 'pushState')`)
+          .circle.flex-center
+            i.fa.fa-cloud-upload
+      //-
+        .header-icon.header-bell.flex-center(
+          v-if='user__got_login && user_id !== undefined'
+          ): .circle.flex-center
+          //- notifications
+          i.fa.fa-bell-o
+
+      .header-icon.ellipsis-tog.flex-center(
+        :class='{active: header.menu.open}'
+        @click='header__elipsis_tog(header.menu)'
+        v-if='user__got_login && user_id !== undefined'
+        )
+          .header-avatar.flex-center(
+            v-if='false'
+            )
+            i.fake-avatar.fa.fa-user-circle-o
+          img.header-avatar(
+            v-if='user_id',
+            :src=`'https://twitter.com/'+user_id+'/profile_image'`)
+
+      .header-button-text.flex-center(
+        v-if='user__got_login && user_id === undefined'
+        )
+        a(href='/tw.login') login

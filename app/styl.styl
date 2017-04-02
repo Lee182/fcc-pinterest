@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css?family=Dosis')
+@require './lib/jonoreset.styl'
+
+$font1 = 'Dosis', sans-serif
+
+
+
+.flex-row
+  display flex
+  flex-flow row wrap
+  justify-content flex-start
+
+.flex-center
+  display flex
+  justify-content center
+  align-items center
+
+.flex-gap
+  flex-grow 1
+
+.text-letterspace
+  text-transform capitalize
+  font-size 0.9rem
+  letter-spacing 0.2rem
+
+.ellipsis
+  white-space nowrap
+  overflow hidden
+  text-overflow ellipsis
+body
+  // filter saturate(0%) sepia(50%)
+  background-color #374144
+  color white
+  font-family $font1
+  overflow hidden
+.content
+  overflow scroll
+  // background-color rgba(48, 11, 71, .15)
+  height calc(100vh - 3rem)
+  width 100%
+
+.byte-horizontal
+  padding 0 .5rem
+.bit-horizontal
+  padding 0 .25rem
+.gap-vertical
+  padding  .5rem 0
+
+.padv1
+  padding 1rem 0
+.padHalf
+  padding .5rem
+
+.md0
+  box-shadow 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)
+.md1
+  box-shadow 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)
+.md2
+  box-shadow 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
+
+
+
+@require 'modules/header.styl'
+@require 'modules/account.styl'
+@require 'modules/stage.styl'
+
+@require 'modules/upload.styl'
+@require 'modules/home.styl'
+@require 'modules/single_post.styl'
+
+
+// *
+//   outline 1px solid grey

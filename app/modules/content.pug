@@ -1,0 +1,21 @@
+#app(v-cloak)
+  include header.pug
+  .content
+    transition(
+      name='show',
+      @before-enter='home__enter',
+      @before-leave='home__leave'
+    )
+      .stage(v-show=`router.path === '/' || router.path === '/user/:user_id'`)
+        include home.pug
+    .stage(v-show=`router.path === '/upload'`)
+      include upload.pug
+    .stage(v-show=`router.path === '/my-account'`)
+      include account.pug
+    transition(
+      name='show',
+      @before-enter='sp__enter',
+      @before-leave='sp__leave'
+    )
+      .stage(v-show=`router.path === '/post/:post_id'`)
+        include single_post.pug

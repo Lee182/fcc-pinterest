@@ -1,0 +1,30 @@
+include header_back.pug
+header.header.md1
+  +header_back('/', 'fcc-pinterest', true, true)
+  +header_back('/my-account', 'My Account', true)
+  +header_back('/post/:post_id', `{{ sp_title }}`, true)
+  +header_back('/user/:user_id', `{{ home_title }}`, true)
+  +header_back('/upload', 'Image Upload', true, false, false)
+
+.ellipsis-fullscreen(
+  :class='{show: header.menu.open, darkroom: header.menu.open}'
+  @mousedown='ellipsis_clickaway($event, header.menu)'
+  @touchstart='ellipsis_clickaway($event, header.menu)'
+  )
+nav.ellipsis-menu.md2(
+   :class='{show: header.menu.open}'
+  )
+  li(@click='home__get(); header.menu.open = false')
+    i.fa.fa-refresh
+    span.bit-horizontal
+    | refresh
+  li(@click='user__settings_click()')
+    i.fa.fa-cog
+    span.bit-horizontal
+    | my account
+  li(
+    @click='user__logout_btn()'
+    )
+    i.fa.fa-sign-out
+    span.bit-horizontal
+    | logout

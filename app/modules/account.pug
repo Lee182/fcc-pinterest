@@ -1,0 +1,7 @@
+.account-layout.flex-row
+  .account-box.md0
+    .flex-center
+      img.account-headshot(
+        :src=`'https://twitter.com/'+user_id+'/profile_image?size=original'`)
+    .flex-center
+      h2.padv1(v-if='user_id !== undefined') @{{user_id}}

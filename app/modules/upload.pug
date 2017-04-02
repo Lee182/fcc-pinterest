@@ -1,0 +1,37 @@
+.layout-upload
+  .post.flex-row.md1(v-for='post in post_uploads')
+    input.post__title(
+      placeholder='Your Post title...',
+      v-model='post.title')
+    .post__img
+      img.fill(:src='post.src')
+      .post__upload.flex-row
+        p(v-if='!is_fileuploaded(post)') {{ filesize(post.uploaded.bytes) }} /
+        p {{ filesize(post.metadata.size) }}
+        .flex-gap
+        p {{ post__percent(post) }}
+        .post__uploadbar(
+          v-bind:style=`{width: post__percent(post)}`)
+    textarea.post__description(
+      placeholder='Add a description #tags and @mention'
+      v-model='post.description'
+    )
+    button.post__save.md0(@click='post__update(post)') save post
+  
+  .upload(
+    :class='{dragging_file: iup.dragging_file}'
+    )
+    .upload__icon.flex-center
+      i.fa.fa-cloud-upload
+    .flex-row.upload__explain
+      .upload__choose_file Choose a image file
+      .upload__drag_file or drag it here
+    input.upload__input(
+      type='file',
+      multiple='',
+      accept='.jpg,.jpeg,.png,.gif',
+      @change='preload__files($event)',
+      @dragenter='upload__dragenter($event)',
+      @dragleave='upload__dragleave($event)',
+      @drop='upload__dragleave($event)'
+    )

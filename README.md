@@ -43,3 +43,18 @@ Tasks TODO.
   - DO image can be unliked
   - DO image can be shared via twitter
   - DO image can have comments from others users
+
+
+
+changed
+  modules/home.pug
+  modules/home.js
+  modules/home.styl
+
+  server/upload_image
+  server/short_url
+  images/
+
+  html 'Choose a image file' to accept multiple images.
+  html add save button to unfinished post.
+  store notifications in user db
