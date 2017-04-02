@@ -100,7 +100,10 @@ methods.comms_init = function(){
   w.comms = wsClient('ws://'+location.host)
 
   comms.on('connection', l('connection'))
-  comms.on('close', l('close'))
+
+  comms.on('close', function(){
+    comms.reconnect()
+  })
 
   comms.on('message', function(o){
     l('message')(o)
