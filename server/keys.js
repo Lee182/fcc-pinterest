@@ -1,7 +1,7 @@
 module.exports = {
-  mongourl: process.ENV.MONGOURL,
+  mongourl: process.env.MONGOURL,
   twitter: {
-    consumerKey: process.ENV.TWKEY,
-    consumerSecret: process.ENV.TWSEC,
+    consumerKey: process.env.TWKEY,
+    consumerSecret: process.env.TWSEC,
   }
 }

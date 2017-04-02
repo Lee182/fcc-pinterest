@@ -5,7 +5,7 @@
   "main": "server/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server/server.js",
+    "start": "node server/index.js",
     "copy-libs": "cp ./app/to-copy/* ./dist/",
     "nstart": "nodemon server/index.js -w ./server",
     "pug": "pug -P ./app/index.pug -o ./dist/",
