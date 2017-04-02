@@ -52,6 +52,7 @@ function login_cb(req, res, next){
       }},
       {upsert: true, returnOriginal: false})
     .then(function(result){
+      console.log('tw', result)
       req.twuser = user.userName
       next()
     })

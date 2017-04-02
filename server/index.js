@@ -23,7 +23,7 @@ var tw = require('./twitter_session')({
   coll_name: 'pinterest_sessions',
   consumerKey: k.twitter.consumerKey,
   consumerSecret: k.twitter.consumerSecret,
-  callbackUrl: 'http:///lee182-fcc-pinterest.herokuapp.com/tw.login-cb'
+  callbackUrl: 'http://fcc-pin.blogjono.com/tw.login-cb'
 })
 app.get('/tw.login', tw.login)
 app.get('/tw.login_cb', tw.login_cb, function(req,res,next){

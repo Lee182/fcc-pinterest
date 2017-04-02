@@ -1,0 +1,37 @@
+download the code with git.
+run npm install
+
+update server
+  apt-get update
+  apt-get upgrade
+
+  npm install -g npm
+
+  apt-get install make
+  apt-get install g++
+  npm install sharp
+
+add nginx entry
+vim /etc/nginx/sites-enabled/
+  server {
+    server_name fcc-pin.blogjono.com;
+    listen 80;
+    listen [::]:80;
+
+    location / {
+        proxy_pass http://localhost:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+  }
+
+service nginx restart
+systemctl restart nginx
+
+
+printf "[Service]\nExecStartPost=/bin/sleep 0.1\n" > /etc/systemd/system/nginx.service.d/override.conf
+systemctl daemon-reload
+systemctl restart nginx
