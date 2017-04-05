@@ -324,10 +324,20 @@ methods.comms__new_message = function(o) {
 methods.comms_init = function(){
   let vm = this
   var i = 0
-  w.comms = wsClient('ws://'+location.host)
+
+  var is_secure = location.href.match('^https://') !== null
+  var method = 'ws://'
+  if (is_secure) {method = 'wss://'}
+
+  w.comms = wsClient(method+location.host)
 
   comms.on('connection', l('connection'))
-  comms.on('close', l('close'))
+
+  comms.on('close', function(){
+    w.wait(500).then(function(){
+      comms.reconnect()
+    })
+  })
 
   comms.on('message', function(o){
     l('message')(o)
