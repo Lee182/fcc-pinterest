@@ -11,6 +11,13 @@ mixin header_back(path, title, showAccount, isTitle, isUpload)
       .flex-gap
       if (isUpload !== false)
         .header-icon.flex-center(
+          v-if='user__got_login && user_id === undefined')
+          a(href='/tw.login')
+            .circle.flex-center
+              i.fa.fa-cloud-upload
+
+        .header-icon.flex-center(
+          v-if='user_id !== undefined'
           @click=`route__go('/upload', 'pushState')`)
           .circle.flex-center
             i.fa.fa-cloud-upload

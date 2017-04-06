@@ -403,6 +403,7 @@ module.exports = function({data, methods, computed}) {
     if (vm.router.path === '/user/:user_id'){
       q.user_id = vm.router.params.user_id
     }
+    console.log(q)
     comms.req(q)
     .then(function(res){
       console.log('home__get', res)

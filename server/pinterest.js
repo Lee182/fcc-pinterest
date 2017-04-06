@@ -62,6 +62,8 @@ module.exports = function({app, tw, dao}) {
     return o.retrieve__FS_data(req.params._id)
     .then(function(stream){
       stream.pipe(res)
+    }).catch(function(err){
+      res.end()
     })
   })
 
@@ -133,7 +135,12 @@ module.exports = function({app, tw, dao}) {
   }
   o.retrieve__FS_data = function(_id) {
     return new Promise(function(resolve, reject){
-      resolve(  fs.createReadStream( getPath(_id) ) )
+      fs.exists(getPath(_id), function(bool){
+        if (bool === false) {
+          return reject(false)}
+        var a = fs.createReadStream( getPath(_id) )
+        resolve(a)
+      })
     })
   }
   o.post__store_metadata = function({_id, metadata}) {
