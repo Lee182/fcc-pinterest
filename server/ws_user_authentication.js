@@ -20,7 +20,8 @@ module.exports = function({comms, tw, cookie_parser, users_online}){
       }
       return tw.is_logged_in_prom(cookies.twitter).then(function(a){
         console.log(a)
-        if (a === undefined) {
+        var user_id = a ? a.user_id : undefined
+        if (user_id === undefined) {
           return comms.send({ws, data: {user_id: null}})
         }
         var i = users_online.findIndex(function(o){
