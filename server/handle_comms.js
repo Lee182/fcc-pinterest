@@ -79,7 +79,7 @@ module.exports = function({app, server, cookie_parser, tw, dao}) {
   })
 
   comms.on('message', function({data, ws}){
-    // console.log('data', data)
+    console.log('data', data)
     var user = get_user(ws)
     if (data.cmd === 'post__update' && user_auth(user, data.post.user_id)) {
       dao.post__update(data.post)

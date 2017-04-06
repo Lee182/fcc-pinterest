@@ -108,7 +108,9 @@ methods.comms_init = function(){
 
   comms.on('close', function(){
     w.wait(500).then(function(){
-      comms.reconnect()
+      if (comms.ws.readyState === comms.ws.CLOSED) {
+        comms.reconnect()
+      }
     })
   })
 
