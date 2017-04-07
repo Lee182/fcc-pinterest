@@ -325,7 +325,7 @@ module.exports = function({app, tw, dao}) {
     return o.db.collection('pinterest_posts')
     .findOneAndUpdate(
       {_id: o.ObjectId(_id)},
-      {$pull: {hearts: {user_id} } },
+      {$pop: {hearts: {user_id} } },
       {returnOriginal: false})
     .then(function(result){
       // console.log('post__heart_remove', result.value)
