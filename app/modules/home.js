@@ -51,7 +51,7 @@ module.exports = function({data, methods, computed}) {
   methods.has_user_hearted = function(post) {
     let vm = this
     var cond = post.hearts.find(function(heart){
-      return heart.user_id = vm.user_id
+      return heart.user_id === vm.user_id
     }) !== undefined
     return cond
   }
