@@ -466,7 +466,10 @@ module.exports = function({data, methods}){
   data.router.path = undefined
   data.router.params = {}
   data.router.paths = [
-    { path: '/' },
+    { path: '/', afterCreated: function(){
+      let vm = this
+      vm.home__get()
+    }},
     { path: '/user/:user_id', dynamic: true, afterCreated: function(){
       let vm = this
       vm.home__clear()
